@@ -1,0 +1,17 @@
+/**
+ * For development purposes only
+ * Resets the page to a more acceptable level (without needing another dependency)
+ */
+
+html, body {
+	background: white;
+	font-size: 14pt;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+html *, body * {
+	box-sizing: border-box;
+}

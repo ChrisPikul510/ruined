@@ -1,3 +1,8 @@
+/lib/
+
+# IDE project files
+*.sublime-*
+
 # Logs
 logs
 *.log
