@@ -4,8 +4,8 @@
  * It rosters the require imports so that they get picked up by the webserver
  * Also gives us the nice react boilerplate
  */
-require("../dev/index.html")			//HTML File
-require("./styles/development.scss")	//Dev Stylesheet
+require("./index.html")			//HTML File
+require("./development.scss")	//Dev Stylesheet
 
 import React from 'react'
 import ReactDOM from 'react-dom'

@@ -3,10 +3,10 @@
  */
 require('index.scss') //Master Stylesheet since this is the index
 
-import { Button, IconButton, ConfirmButton } from './button'
+import * as Buttons from './buttons'
 
 if(typeof module !== 'undefined') {
 	module.exports = {
-		Button, IconButton, ConfirmButton
+		...Buttons
 	}
 }

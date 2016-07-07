@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-	entry: path.join(__dirname, "/src/development.jsx"),
+	entry: path.join(__dirname, "/dev/development.jsx"),
 	output: {
 		path: path.join(__dirname, "/dev/"),
 		filename: "ruined.js"
