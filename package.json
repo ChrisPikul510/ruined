@@ -1,0 +1,25 @@
+{
+  "name": "ruined",
+  "version": "0.1.0",
+  "description": "React User INterface for Expediated Development",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisPikul510/ruined.git"
+  },
+  "keywords": [
+    "react",
+    "user",
+    "interface",
+    "component"
+  ],
+  "author": "Chris Pikul <chris@komolog.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChrisPikul510/ruined/issues"
+  },
+  "homepage": "https://github.com/ChrisPikul510/ruined#readme"
+}
