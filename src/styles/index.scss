@@ -3,3 +3,18 @@
  * By using this index file you are importing all the styles.
  * For code spliting they are broken up into their conterparts.
  */
+@import 'theme';
+@import 'button';
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: top;
+	margin-top: 0.1em;		// Look at this later for the vertical alignment
+	margin-right: 0.1em;
+	color: inherit;
+	fill: currentColor;
+
+	background: #eee; // DEMO PURPOSES
+}

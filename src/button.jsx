@@ -1,5 +1,6 @@
 import React from 'react'
 
+require('styles/button.scss')
 export default class Button extends React.Component {
 	static defaultProps = {
 		type: 'default',

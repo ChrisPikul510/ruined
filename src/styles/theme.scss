@@ -1,0 +1,31 @@
+/**
+ * Root style theme for defaults.
+ * Basically just a list of helper colors, sizes, and fonts.
+ */
+
+$font-normal: 'Helvetica', sans-serif;
+$font-title: 'Times New Roman', serif;
+
+$color-default: #888;
+$color-default-shadow: #555;
+$color-default-highlight: #BBB;
+
+$color-primary: #3366FF;
+$color-primary-shadow: #1133BB;
+$color-primary-highlight: #6699FF;
+
+$color-secondary: #AA00BB;
+$color-secondary-shadow: darken($color-secondary, 20%);
+$color-secondary-highlight: lighten($color-secondary, 20%);
+
+$color-success: #33BB44;
+$color-success-shadow: darken($color-success, 20%);
+$color-success-highlight: lighten($color-success, 20%);
+
+$color-warning: #FFAA00;
+$color-warning-shadow: darken($color-warning, 20%);
+$color-warning-highlight: lighten($color-warning, 20%);
+
+$color-danger: #EE4400;
+$color-danger-shadow: darken($color-danger, 20%);
+$color-danger-highlight: lighten($color-danger, 20%);

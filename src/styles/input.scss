@@ -1,0 +1,95 @@
+@import 'theme';
+
+span.input {
+	display: inline-block;
+	position: relative;
+
+	margin-right: 0.5em;
+	font-family: $font-normal;
+	font-size: 1em;
+
+	input {
+		appearance: none;
+		outline: none;
+
+		background: transparent;
+		color: $color-default;
+		font-size: 1em;
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		border: none;
+	}
+
+	&.placeholder > label {
+		color: $color-default-highlight;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 1em;
+
+		transition: top 0.25s ease-out, font-size 0.25s ease, color 0.25s ease;
+		pointer-events: none;
+	}
+	&:not(.placeholder) > label, &.focus > label {
+		color: $color-default-shadow;
+		position: absolute;
+		top: -1em;
+		left: 0;
+
+		font-size: 0.5em;
+	}
+	&.iconed > label {
+		left: 1.2rem;
+	}
+
+	&::before {
+		content: ' ';
+		display: block;
+		background: $color-default;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+
+		transition: height 0.25s ease;
+	}
+
+	.prefix-icon {
+		position: relative;
+		top: -0.1em;
+		color: $color-default;
+	}
+	.validation-icon {
+		position: relative;
+		top: -0.1em;
+		opacity: 0;
+		transition: color 0.25s ease, opacity 0.25s ease-in;
+	}
+
+	&.required, &:required {
+		.validation-icon{ opacity: 1; }
+	}
+
+	&.valid, &:valid {
+		.validation-icon{ color: $color-success; }
+	}
+
+	&.invalid, &:invalid {
+		.validation-icon{ color: $color-danger; }
+	}
+
+	&.focus{
+		input { color: $color-default-shadow; }
+		&::before { background: $color-default-shadow; height: 2px; }
+		.validation-icon{ opacity: 1; }
+
+		&.invalid, &:invalid {
+			&::before { background: $color-danger; }
+			input + label { color: $color-danger; }
+		}
+	}
+}

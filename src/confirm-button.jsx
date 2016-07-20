@@ -6,6 +6,23 @@ export default class ConfirmButton extends Button {
 		super(props)
 
 		this.state.confirming = false
+
+		this.handleClick = this.handleClick.bind(this)
+		this.handleBlur = () => this.setState({confirming: false})
+	}
+
+	handleClick(evt) {
+		if(this.state.confirming === true) {
+			this.setState({animateClick: true, confirming: false}, () => setTimeout(() => this.setState({animateClick: false}), 1000))
+			this.props.onClick(evt)
+		} else {
+			this.setState({confirming: true}, () => setTimeout(() => {
+				if(this.state.confirming === true)
+					this.setState({confirming: false})
+			}, 5000))
+		}
+
+		return true
 	}
 
 	render() {
@@ -47,6 +64,10 @@ export default class ConfirmButton extends Button {
 		if(this.state.animateHover === true && disabled === false)
 			classes += ' animate-hover'
 
+		const confirming = this.state.confirming
+		if(confirming)
+			classes += ' confirming'
+
 		return <button type={type} 
 						title={this.props.hideText==true?this.props.children:null} 
 						{...this.props.properties} 
@@ -55,6 +76,6 @@ export default class ConfirmButton extends Button {
 						onClick={this.handleClick}
 						onMouseEnter={this.handleHoverEnter}
 						onMouseLeave={this.handleHoverLeave}
-						>{icon}{this.props.children}</button>
+						>{icon}{this.props.children}{confirming==true && (<span className='tooltip top'>Are you sure?</span>)}</button>
 	}
 }

@@ -1,0 +1,145 @@
+/**
+ * Default button style
+ */
+@import 'theme';
+
+button {
+	// Resetting browsers first
+	display: inline-block;
+	box-sizing: border-box;
+	outline: none;
+	appearance: none;
+	background: transparent;
+	width: auto;
+	height: auto;
+
+	// Button wide defaults (we know every class will need these)
+	font-family: $font-normal;
+	font-size: 1em;
+	line-height: 1.25em;
+	padding: 0.25em 0.5em;
+	margin-right: 0.25em;
+
+	border: 1px solid $color-default;
+	border-radius: 0.1em;
+	color: $color-default;
+
+	cursor: pointer;
+
+	&:hover, &:focus, &.hover {
+		border-color: $color-default-highlight;
+		color: $color-default-highlight;
+	}
+	&:active, &.click {
+		border-color: $color-default-shadow;
+		color: $color-default-shadow;
+	}
+
+	/* Types */
+	&[type='submit'], &.submit {
+		border-color: $color-primary;
+		color: $color-primary;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-primary-highlight;
+			color: $color-primary-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-primary-shadow;
+			color: $color-primary-shadow;
+		}
+	}
+	&[type='reset'], &.reset {
+		border-color: $color-warning;
+		color: $color-warning;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-warning-highlight;
+			color: $color-warning-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-warning-shadow;
+			color: $color-warning-shadow;
+		}
+	}
+	&.info {
+		border-color: $color-secondary;
+		color: $color-secondary;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-secondary-highlight;
+			color: $color-secondary-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-secondary-shadow;
+			color: $color-secondary-shadow;
+		}
+	}
+	&.success {
+		border-color: $color-success;
+		color: $color-success;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-success-highlight;
+			color: $color-success-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-success-shadow;
+			color: $color-success-shadow;
+		}
+	}
+	&.warning {
+		border-color: $color-warning;
+		color: $color-warning;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-warning-highlight;
+			color: $color-warning-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-warning-shadow;
+			color: $color-warning-shadow;
+		}
+	}
+	&.danger {
+		border-color: $color-danger;
+		color: $color-danger;
+
+		&:hover, &:focus, &.hover {
+			border-color: $color-danger-highlight;
+			color: $color-danger-highlight;
+		}
+		&:active, &.click {
+			border-color: $color-danger-shadow;
+			color: $color-danger-shadow;
+		}
+	}
+
+	/* Sizes */
+	&.xsmall { font-size: 0.5em; }
+	&.small { font-size: 0.75em; }
+	&.regular { font-size: 1em; }
+	&.large { font-size: 1.5em; }
+
+	/* Shapes */
+	&.rectangle { border-radius: 0.1em; }
+	&.rounded { border-radius: 1em; padding: 0.25em 0.75em; }
+	&.transparent { background: transparent; border: none; }
+
+	/* Extra Props */
+	&:disabled:not([class^='status-']) {
+		border-color: $color-default-highlight;
+		color: $color-default-highlight;
+		cursor: not-allowed;
+	}
+	&[class*='status-'] {
+		cursor: default;
+		&.status-fetching { border-color: $color-warning; color: $color-warning; cursor: progress;}
+		&.status-success { border-color: $color-success; color: $color-success; }
+		&.status-failure { border-color: $color-danger; color: $color-danger; }
+	}
+	&.confirming {
+		border-color: $color-warning;
+		color: $color-warning;
+	}
+}

@@ -16,14 +16,14 @@ module.exports = {
 	module: {
 		preLoaders: [
 			{
-				test: /.jsx?$/,
+				test: /\.jsx?$/,
 				exclude: /(node_modules)/,
 				loader: 'source-map'
 			}
 		],
 		loaders: [
 			{ //Babel Loader
-				test: /.jsx?$/,
+				test: /\.jsx?$/,
 				loader: "babel-loader",
 				exclude: /(node_modules)/,
 				query: { presets: ["es2015","stage-0","react"] }
@@ -57,6 +57,7 @@ module.exports = {
 	postcss: function() { return [autoprefixer] },
 	resolve: {
 		extensions: ["",".js",".jsx"],
-		root: [path.resolve("./src/"),path.resolve("./src/styles")]
+		root: [ path.resolve( "./src/") ],
+		modules: [ "node_modules", path.resolve( "./src/") ]
 	}
 };

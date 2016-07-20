@@ -11,7 +11,7 @@ import { Button, IconButton } from 'ruined/buttons'; // Also works
 import Button from 'ruined/button'; //Individual
 ```
 
-Once you've imported the one's you want, using them is also dead simple (hence the point of this). Need an form submit button with an svg icon and async status? 
+Once you've imported the ones you want, using them is also dead simple (hence the point of this). Need a form submit button with an svg icon and async status? 
 ```
 <Button type='submit' status={asyncStatusPropert} onClick={this.submit}>Submit</Button>
 ```
@@ -23,3 +23,5 @@ Review the [docs](https://github.com/ChrisPikul510/ruined/wiki) for more info an
 
 ##Styling
 Styling is up to you to implement, I do supply a stylesheet you can use if you'd like. One of the major points of the way I built this was to use css class names instead of hard-coding the inline styles. If your looking for already-themed Bootstrap or Material UI kits, go for [Elemental](https://github.com/elementalui/elemental) or [Material](https://github.com/callemall/material-ui).
+
+I use super simple class names for the css styling, and you should to. Raw components themselves such as button, input, select, etc. don't have classes applied. But sub-properties do, such as `info` for info buttons, or `hover` and `click` classes getting added for those actions. Also available are the `disabled` classes as well as `valid` and `invalid` for validated inputs.
