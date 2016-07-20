@@ -1,5 +1,10 @@
 # RUInED
 ## **R**eact **U**ser **IN**terface for **E**xpediated **D**evelopment
+##Currently Implemented Elements
+* Button - Standard buttons
+  * IconButton - Short hand class for icon only buttons (text content get's turned into the title/tooltip value)
+  * ConfirmButton - When clicked presents a tooltip asking for a second click, after the second click it fires the onClick event
+* Input - Input that negotiates the autofill values from it's type, also offers validation and required icons.
 
 ##Usage
 Using it is simple. For code-spliting purposes importing directly from the module will give you access to all the components.
