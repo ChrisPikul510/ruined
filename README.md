@@ -5,6 +5,9 @@
   * IconButton - Short hand class for icon only buttons (text content get's turned into the title/tooltip value)
   * ConfirmButton - When clicked presents a tooltip asking for a second click, after the second click it fires the onClick event
 * Input - Input that negotiates the autofill values from it's type, also offers validation and required icons.
+* Checkbox - Standard checkbox for css styling (so not the native styled checkbox)
+* Radio - Same as checkbox
+* Slider - Value slider with min/max values, and stepping. Plenty of view options for displaying labels, values, progress, etc.
 
 ##Usage
 Using it is simple. For code-spliting purposes importing directly from the module will give you access to all the components.
