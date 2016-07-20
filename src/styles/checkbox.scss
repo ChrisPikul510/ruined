@@ -1,0 +1,79 @@
+@import 'theme';
+
+span.checkbox {
+	display: inline-block;
+	box-sizing: border-box;
+	background: transparent;
+	width: auto;
+	height: auto;
+	position: relative;
+
+	font-family: $font-normal;
+	font-size: 1em;
+
+	margin-right: 0.25em;
+
+	input {
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		margin: 0;
+		top: -1px;
+		left: -1px;
+	}
+
+	label {
+		padding-left: 1.25em;
+		position: relative;
+
+		&::before {
+			display: block;
+			content: ' ';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1em;
+			height: 1em;
+
+			border: 1px solid $color-default-shadow;
+			border-radius: 0.1em;
+			background: transparent;
+		}
+	}
+
+	&.hover > label::before, input:hover + label::before {
+		background: $color-default-highlight;
+		border-color: $color-default-highlight;
+	}
+
+	&.click > label::before, input:active + label::before {
+		background: $color-default-shadow;
+		border-color: $color-default-shadow;
+	}
+
+	&.checked > label::before, input:checked + label::before {
+		background: $color-default;
+	}
+
+	&.checked.hover > label::before, &.checked:hover > label::before, input:checked:hover + label::before {
+		background: $color-default-highlight;
+	}
+
+	&.disabled > label, input:disabled + label {
+		color: $color-default-highlight;
+		cursor: not-allowed;
+	}
+	&.disabled > label::before, input:disabled + label::before {
+		border-color: $color-default-highlight;
+		background: transparent;
+	}
+
+	&.no-text label {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		text-indent: -9999px;
+	}
+}

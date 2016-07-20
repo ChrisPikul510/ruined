@@ -10,7 +10,7 @@ require("./example.scss")	//Dev Stylesheet
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Button, ConfirmButton, IconButton, Input } from '../' //RUInED
+import { Button, ConfirmButton, IconButton, Input, Checkbox, Radio, Slider } from '../' //RUInED
 
 class RUInED extends React.Component {
 	constructor(props) {
@@ -58,9 +58,27 @@ class RUInED extends React.Component {
 				<Button disabled={true}>Disabled</Button>
 				<Button status={status} onClick={this.fakeAsync}>Status Driven</Button>
 			<h2>Inputs</h2>
+				<h3>Text</h3>
 				<Input type='text'>Basic Text</Input>
-				<Input type='email' validate={true}>Validated Email</Input>
+				<Input type='email' validate>Validated Email</Input>
 				<Input type='password' required>Required Password</Input>
+				<Input type='text' disabled>Disabled Input</Input>
+				<h3>Checkbox</h3>
+				<Checkbox>Standard</Checkbox>
+				<Checkbox checked>Defaulted</Checkbox>
+				<Checkbox hideText>No Text</Checkbox>
+				<Checkbox disabled>Disabled</Checkbox>
+				<h3>Radio</h3>
+				<Radio name='demo'>Standard</Radio>
+				<Radio name='demo' checked>Defaulted</Radio>
+				<Radio name='demo' hideText>No Text</Radio>
+				<Radio name='demo' disabled>Disabled</Radio>
+				<h3>Slider</h3>
+				<Slider>Standard</Slider>
+				<Slider hideTitle>Standard</Slider>
+				<Slider showValue>With Value</Slider>
+				<Slider fullWidth showValueRange>Full Width</Slider>
+				<Slider fullWidth showValueInThumb minValue={5} maxValue={95} steps={5}>Full Width w/Value</Slider>
 		</div>
 	}
 }

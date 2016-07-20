@@ -9,6 +9,7 @@ export default class Input extends React.Component {
 	};
 
 	static defaultProps = {
+		defaultValue: '',
 		properties: null,
 		type: 'text',
 		role: 'none',
@@ -18,6 +19,7 @@ export default class Input extends React.Component {
 		required: false,
 		minLength: 2,
 		maxLength: 32,
+		disabled: false,
 
 		onValidate: () => { __DEV__ && console.warn('Input has validate option set, but no onValidate handler'); return true }
 	};
@@ -29,7 +31,8 @@ export default class Input extends React.Component {
 		validate: React.PropTypes.bool,
 		required: React.PropTypes.bool,
 		minLength: React.PropTypes.number,
-		maxLength: React.PropTypes.number
+		maxLength: React.PropTypes.number,
+		disabled: React.PropTypes.bool
 	}
 
 	constructor(props) {
@@ -40,7 +43,7 @@ export default class Input extends React.Component {
 			this.id = props.id
 
 		const initState = {
-			val: '',
+			val: props.defaultValue,
 			valid: !(props.validate || props.required),
 			focused: false
 		}
@@ -129,10 +132,15 @@ export default class Input extends React.Component {
 		} else if(typeof autocomplete === 'String')
 			autofill = autocomplete
 
+		let disabled = this.props.disabled
+		if(disabled)
+			classes += ' disabled'
+
 		return <span className={classes} onClick={() => {document.getElementById(this.id).focus()} }>
 			{ icon !== null && ( <svg className='icon prefix-icon'><use xlinkHref={'#icon-'+icon}/></svg> )}
 			<input type={type} 
 					id={this.id} 
+					disabled={disabled}
 					onChange={this.handleChange} 
 					onFocus={this.handleFocus}
 					onBlur={this.handleBlur}

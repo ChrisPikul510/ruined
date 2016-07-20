@@ -105,6 +105,8 @@ export default class Button extends React.Component {
 		}
 
 		let disabled = this.props.disabled
+		if(disabled)
+			classes += ' disabled'
 		if(this.state.status !== 'idle') {
 			classes += ' status-'+this.state.status
 

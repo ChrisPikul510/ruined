@@ -92,4 +92,10 @@ span.input {
 			input + label { color: $color-danger; }
 		}
 	}
+
+	&:disabled, &.disabled {
+		cursor: not-allowed;
+		input { cursor: not-allowed; }
+		&::before { background: $color-default-highlight; }
+	}
 }
