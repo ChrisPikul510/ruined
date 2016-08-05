@@ -78,9 +78,9 @@ export default class Radio extends React.Component {
 		return <span className={classes}>
 			<input type='radio'
 				ref='radioInput'
+				{...this.props.properties}
 				name={name}
 				id={this.id}
-				{...this.props.properties}
 				defaultChecked={checked}
 				disabled={disabled}
 				onFocus={this.onFocus}

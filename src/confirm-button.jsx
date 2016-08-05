@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './button'
 
+require('styles/tooltip.scss')
 export default class ConfirmButton extends Button {
 	constructor(props) {
 		super(props)

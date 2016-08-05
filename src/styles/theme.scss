@@ -6,6 +6,8 @@
 $font-normal: 'Helvetica', sans-serif;
 $font-title: 'Times New Roman', serif;
 
+$color-background: #FFFFFF;
+
 $color-default: #888;
 $color-default-shadow: #555;
 $color-default-highlight: #BBB;
@@ -29,3 +31,6 @@ $color-warning-highlight: lighten($color-warning, 20%);
 $color-danger: #EE4400;
 $color-danger-shadow: darken($color-danger, 20%);
 $color-danger-highlight: lighten($color-danger, 20%);
+
+$shadow-size: 1em;
+$shadow-color: rgba(0, 0, 0, 0.3);

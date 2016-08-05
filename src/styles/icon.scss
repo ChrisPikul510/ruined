@@ -1,0 +1,28 @@
+/**
+ * Default icon style
+ */
+@import 'theme';
+
+svg.icon {
+	display: inline-block;
+
+	margin: 0;
+	margin-bottom: 0.125em;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+
+	background: transparent;
+	color: inherit;
+	fill: currentColor;
+
+	use { width: 100%; height: 100%; }
+
+	&.default { color: $color-default; }
+	&.primary { color: $color-primary; }
+	&.secondary { color: $color-secondary; }
+	&.info { color: $color-secondary; }
+	&.success { color: $color-success; }
+	&.warning { color: $color-warning; }
+	&.danger { color: $color-danger; }
+}

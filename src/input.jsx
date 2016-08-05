@@ -140,11 +140,13 @@ export default class Input extends React.Component {
 			{ icon !== null && ( <svg className='icon prefix-icon'><use xlinkHref={'#icon-'+icon}/></svg> )}
 			<input type={type} 
 					id={this.id} 
+					{...this.props.properties}
+					name={this.props.name || this.id}
+					value={val}
 					disabled={disabled}
 					onChange={this.handleChange} 
 					onFocus={this.handleFocus}
 					onBlur={this.handleBlur}
-					{...this.props.properties}
 					autoComplete={autofill}
 					required={required}
 					/>

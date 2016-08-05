@@ -1,0 +1,44 @@
+/**
+ * Tooltip style
+ */
+@import 'theme';
+
+.tooltip {
+	display: block;
+	position: absolute;
+	z-index: 100;
+	opacity: 0;
+
+	padding: 0.25em;
+	font-size: 0.75em;
+
+	background: $color-background;
+	color: $color-default;
+	border-radius: 0.1em;
+	box-shadow: 0 0 $shadow-size $shadow-color;
+
+	@keyframes tooltip-fadein {
+		0% {
+			opacity: 0;
+			box-shadow: 0 0 0 rgba(0,0,0,0);
+		},
+		100% {
+			opacity: 1;
+			box-shadow: 0 0 $shadow-size $shadow-color;
+		}
+	}
+	animation: tooltip-fadein 0.5s forwards;
+
+	&.top {
+		top: -100%;
+	}
+	&.bottom {
+		bottom: -100%;
+	}
+	&.right {
+		right: -100%;
+	}
+	&.left {
+		left: -100%;
+	}
+}

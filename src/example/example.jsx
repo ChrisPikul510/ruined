@@ -10,7 +10,7 @@ require("./example.scss")	//Dev Stylesheet
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Button, ConfirmButton, IconButton, Input, Checkbox, Radio, Slider } from '../' //RUInED
+import { Button, ConfirmButton, IconButton, Input, TelInput, Checkbox, Radio, Slider, Range, Icon } from '../' //RUInED
 
 class RUInED extends React.Component {
 	constructor(props) {
@@ -42,7 +42,7 @@ class RUInED extends React.Component {
 				<Button type='success'>Success</Button>
 				<Button type='warning'>Warning</Button>
 				<Button type='danger'>Danger</Button>
-				<IconButton icon='gear'>Tooltip Text</IconButton>
+				<IconButton icon='info'>Tooltip Text</IconButton>
 				<ConfirmButton onClick={() => alert("Confirmed and clicked")}>Confirm Button</ConfirmButton>
 
 				<h3>Sizes</h3>
@@ -63,6 +63,7 @@ class RUInED extends React.Component {
 				<Input type='email' validate>Validated Email</Input>
 				<Input type='password' required>Required Password</Input>
 				<Input type='text' disabled>Disabled Input</Input>
+				<TelInput>Telephone Number</TelInput>
 				<h3>Checkbox</h3>
 				<Checkbox>Standard</Checkbox>
 				<Checkbox checked>Defaulted</Checkbox>
@@ -79,6 +80,24 @@ class RUInED extends React.Component {
 				<Slider showValue>With Value</Slider>
 				<Slider fullWidth showValueRange>Full Width</Slider>
 				<Slider fullWidth showValueInThumb minValue={5} maxValue={95} steps={5}>Full Width w/Value</Slider>
+				<h3>Range</h3>
+				<Range>Standard</Range>
+				<Range hideTitle>No Title</Range>
+				<Range showValue>With Value</Range>
+				<Range fullWidth showValueRange>Full Width w/Range</Range>
+				<Range fullWidth showValueInThumb minValue={5} maxValue={95} steps={5}>Complex</Range>
+			<h2>Miscellaneous</h2>
+				<h3>Icons</h3>
+				<p>Icons work inline
+					<Icon icon='check' />
+					<Icon icon='check' type='default' />
+					<Icon icon='check' type='primary' title='This one uses title property'/>
+					<Icon icon='check' type='secondary'>This one uses children</Icon>
+					<Icon icon='check' type='info' tooltip='This one uses tooltip property'/>
+					<Icon icon='check' type='success' />
+					<Icon icon='cross' type='warning' />
+					<Icon icon='cross' type='danger' />
+					for easier typography</p>
 		</div>
 	}
 }

@@ -164,7 +164,7 @@ export default class Slider extends React.Component {
 			{ hideFillBar===false && <span ref='fill' className='slider-fill' style={{width: position+'px'}}></span>}
 			{ showValueRange===true && <span className='slider-min'>{this.props.minValue}</span> }
 			{ showValueRange===true && <span className='slider-max'>{this.props.maxValue}</span> }
-			<input type='hidden' id={this.id} name={this.props.name} value={val} />
+			<input type='hidden' id={this.id} name={(this.props.name || this.id)} value={val} />
 		</div>
 	}
 }

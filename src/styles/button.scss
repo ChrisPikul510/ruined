@@ -14,6 +14,7 @@ button {
 	height: auto;
 
 	// Button wide defaults (we know every class will need these)
+	position: relative;
 	font-family: $font-normal;
 	font-size: 1em;
 	line-height: 1.25em;
@@ -123,7 +124,7 @@ button {
 
 	/* Shapes */
 	&.rectangle { border-radius: 0.1em; }
-	&.rounded { border-radius: 1em; padding: 0.25em 0.75em; }
+	&.round { border-radius: 1em; padding: 0.25em 0.75em; }
 	&.transparent { background: transparent; border: none; }
 
 	/* Extra Props */

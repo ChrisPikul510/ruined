@@ -78,6 +78,7 @@ export default class Checkbox extends React.Component {
 			<input type='checkbox' 
 				id={this.id}
 				{...this.props.properties}
+				name={(this.props.name || this.id)}
 				checked={val}
 				disabled={disabled}
 				onFocus={this.onFocus}
