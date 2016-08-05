@@ -1,16 +1,16 @@
 # RUInED
 ## **R**eact **U**ser **IN**terface for **E**xpediated **D**evelopment
 ##Currently Implemented Elements
-* Button - Standard buttons
-  * IconButton - Short hand class for icon only buttons (text content get's turned into the title/tooltip value)
-  * ConfirmButton - When clicked presents a tooltip asking for a second click, after the second click it fires the onClick event
-* Input - Input that negotiates the autofill values from it's type, also offers validation and required icons.
-  * TelInput - Telephone input that opens a popover allowing a more familiar input style. Has input restriction to only allow valid characters.
-* Checkbox - Standard checkbox for css styling (so not the native styled checkbox)
-* Radio - Same as checkbox
-* Slider - Value slider with min/max values, and stepping. Plenty of view options for displaying labels, values, progress, etc.
-* Range - Like slider, but has a low value and high value thumb. Same view properties as Slider
-* Icon - Simple icon class that templates the SVG code to place. Has global properties so you can set once and forget about it.
+* __Button__ - Standard buttons
+  * __IconButton__ - Short hand class for icon only buttons (text content get's turned into the title/tooltip value)
+  * __ConfirmButton__ - When clicked presents a tooltip asking for a second click, after the second click it fires the onClick event
+* __Input__ - Input that negotiates the autofill values from it's type, also offers validation and required icons.
+  * __TelInput__ - Telephone input that opens a popover allowing a more familiar input style. Has input restriction to only allow valid characters.
+* __Checkbox__ - Standard checkbox for css styling (so not the native styled checkbox)
+* __Radio__ - Same as checkbox
+* __Slider__ - Value slider with min/max values, and stepping. Plenty of view options for displaying labels, values, progress, etc.
+* __Range__ - Like slider, but has a low value and high value thumb. Same view properties as Slider
+* __Icon__ - Simple icon class that templates the SVG code to place. Has global properties so you can set once and forget about it.
 
 ##Usage
 Using it is simple. For code-spliting purposes importing directly from the module will give you access to all the components.
