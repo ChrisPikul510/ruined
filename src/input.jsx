@@ -21,7 +21,8 @@ export default class Input extends React.Component {
 		maxLength: 32,
 		disabled: false,
 
-		onValidate: () => { __DEV__ && console.warn('Input has validate option set, but no onValidate handler'); return true }
+		onValidate: () => { __DEV__ && console.warn('Input has validate option set, but no onValidate handler'); return true },
+		onChange: () => {}
 	};
 
 	static propTypes = {
@@ -32,7 +33,9 @@ export default class Input extends React.Component {
 		required: React.PropTypes.bool,
 		minLength: React.PropTypes.number,
 		maxLength: React.PropTypes.number,
-		disabled: React.PropTypes.bool
+		disabled: React.PropTypes.bool,
+
+		onChange: React.PropTypes.func
 	}
 
 	constructor(props) {
@@ -66,9 +69,9 @@ export default class Input extends React.Component {
 	handleChange(evt) {
 		const val = evt.target.value
 		if( this.props.validate || this.props.required || this.props.type !== 'text' )
-			this.setState({ val, valid: this.validate(val) })
+			this.setState({ val, valid: this.validate(val) }, () => this.onChange(this.state.val, this.state.valid))
 		else
-			this.setState({ val })
+			this.setState({ val }, () => this.onChange(this.state.val))
 	}
 
 	validate(val) {

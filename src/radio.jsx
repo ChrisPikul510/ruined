@@ -15,7 +15,9 @@ export default class Radio extends React.Component {
 
 		hideText: false,
 
-		properties: null
+		properties: null,
+
+		onChange: () => {}
 	};
 
 	static propTypes = {
@@ -26,6 +28,8 @@ export default class Radio extends React.Component {
 		hideText: React.PropTypes.bool,
 
 		properties: React.PropTypes.object,
+
+		onChange: React.PropTypes.func
 	}
 
 	constructor(props) {
@@ -53,7 +57,7 @@ export default class Radio extends React.Component {
 	}
 
 	handleChange(evt) {
-		this.setState({ val: evt.target.value })
+		this.setState({ val: evt.target.value }, () => this.props.onChange(this.state.val))
 	}
 
 	render() {

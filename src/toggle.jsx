@@ -1,11 +1,17 @@
 import React from 'react'
 
-require('styles/checkbox.scss')
-export default class Checkbox extends React.Component {
+require('styles/toggle.scss')
+/**
+ * Toggles have the same properties as Checkbox
+ * The main diference is how they are rendered.
+ * Checkbox uses a <Input /> and <Label /> pair, where
+ * Toggles render the input as hidden and provide a separate block elements for the actual input
+ */
+export default class Toggle extends React.Component {
 	static __id = 0;
 	static get id() {
-		Checkbox.__id++
-		return 'checkbox-'+Checkbox.__id
+		Toggle.__id++
+		return 'toggle-'+Toggle.__id
 	};
 
 	static defaultProps = {
@@ -16,7 +22,7 @@ export default class Checkbox extends React.Component {
 
 		properties: null,
 
-		onChange: () => {}
+		onChange: () => {},
 	};
 
 	static propTypes = {
@@ -33,7 +39,7 @@ export default class Checkbox extends React.Component {
 	constructor(props) {
 		super(props)
 
-		this.id = Checkbox.id
+		this.id = Toggle.id
 		if(typeof props.id !== 'undefined')
 			this.id = props.id
 
@@ -56,6 +62,8 @@ export default class Checkbox extends React.Component {
 	}
 
 	handleClick(evt) {
+		if(this.props.disabled)
+			return false;
 		this.setState({ val: !this.state.val }, () => this.props.onChange(this.state.val))
 	}
 
@@ -63,7 +71,7 @@ export default class Checkbox extends React.Component {
 		const { hideText } = this.props
 		const { val, focused } = this.state
 
-		var classes = 'checkbox '+(val===true?'checked':'unchecked')
+		var classes = 'toggle '+(val===true?'checked':'unchecked')
 
 		if(focused)
 			classes += ' focus'
@@ -78,18 +86,20 @@ export default class Checkbox extends React.Component {
 		if(this.props.className != null && this.props.className != '')
 			classes += ' '+this.props.className
 
-		return <span className={classes}>
-			<input type='checkbox' 
+		return <span className={classes}
+				onClick={this.handleClick} 
+				onFocus={this.handleFocus} 
+				onBlur={this.handleBlur}
+				disabled={disabled}>
+			<input type='hidden' 
 				id={this.id}
 				{...this.props.properties}
 				name={(this.props.name || this.id)}
-				checked={val}
-				disabled={disabled}
-				onFocus={this.onFocus}
-				onBlur={this.onBlur}
-				onClick={this.handleClick}
-				onChange={this.handleClick}
+				value={val}
 				/>
+			<div className='toggle-button'>
+				<span className='toggle-button-thumb' />
+			</div>
 			<label htmlFor={this.id}>{this.props.children}</label>
 		</span>
 	}

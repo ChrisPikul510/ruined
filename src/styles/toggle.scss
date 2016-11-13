@@ -1,0 +1,118 @@
+@import 'theme';
+
+span.toggle {
+	display: inline-block;
+	box-sizing: border-box;
+	background: transparent;
+	width: auto;
+	height: 1.25em;
+	position: relative;
+	line-height: 1.25em;
+	vertical-align: middle;
+
+	font-family: $font-normal;
+	font-size: 1em;
+
+	margin-right: 0.25em;
+
+	label {
+		margin-left: 0.25em;
+	}
+
+	.toggle-button {
+		display: inline-block;
+		width: 2em;
+		height: 1em;
+		background: $color-background;
+		border: 1px solid $color-default;
+		border-radius: 0.5em;
+		position: relative;
+		transition: border-color 0.25s ease, background-color 0.25s ease;
+
+		.toggle-button-thumb {
+			display: block;
+			width: 1em;
+			height: 1em;
+			background: $color-default;
+			border-radius: 0.5em;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: -1px 0;
+			transition: left 0.25s ease, background-color 0.25s ease;
+		}
+	}
+
+	&.unchecked {
+		.toggle-button {
+			border-color: $color-default;
+			background: $color-background;
+			.toggle-button-thumb {
+				background: $color-default;
+				left: 0;
+			}
+		}
+		&:hover {
+			.toggle-button {
+				border-color: $color-default-shadow;
+				background-color: $color-default-highlight;
+				.toggle-button-thumb {
+					background-color: $color-default-shadow;
+				}
+			}
+		}
+		&:disabled, &.disabled {
+			.toggle-button {
+				border-color: $color-default-highlight;
+				background: $color-background;
+				.toggle-button-thumb {
+					background: $color-default-highlight;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&.checked {
+		.toggle-button {
+			border-color: $color-default;
+			background: $color-primary-highlight;
+			.toggle-button-thumb {
+				background: $color-primary;
+				left: 1em;
+			}
+		}
+		&:hover {
+			.toggle-button {
+				border-color: $color-default-shadow;
+				background-color: $color-background;
+				.toggle-button-thumb {
+					background-color: $color-primary-highlight;
+				}
+			}
+		}
+
+		&:disabled, &.disabled {
+			.toggle-button {
+				border-color: $color-default-highlight;
+				background: $color-background;
+
+				.toggle-button-thumb {
+					background: $color-primary-highlight;
+					left: 1em;
+				}
+			}
+		}
+	}
+
+	&:disabled, &.disabled {
+		cursor: not-allowed;
+	}
+
+	&.no-text label {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		text-indent: -9999px;
+	}
+}

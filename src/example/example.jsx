@@ -10,7 +10,11 @@ require("./example.scss")	//Dev Stylesheet
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Button, ConfirmButton, IconButton, Input, TelInput, Checkbox, Radio, Slider, Range, Icon } from '../' //RUInED
+import { Button, ConfirmButton, IconButton,
+		Input, TelInput, 
+		Toggle, Checkbox, Radio, 
+		Slider, Range, 
+		Icon } from '../' //RUInED
 
 class RUInED extends React.Component {
 	constructor(props) {
@@ -64,6 +68,11 @@ class RUInED extends React.Component {
 				<Input type='password' required>Required Password</Input>
 				<Input type='text' disabled>Disabled Input</Input>
 				<TelInput>Telephone Number</TelInput>
+				<h3>Toggle / Switch</h3>
+				<Toggle>Standard</Toggle>
+				<Toggle checked>Defaulted</Toggle>
+				<Toggle hideText>No Text</Toggle>
+				<Toggle disabled>Disabled</Toggle>
 				<h3>Checkbox</h3>
 				<Checkbox>Standard</Checkbox>
 				<Checkbox checked>Defaulted</Checkbox>

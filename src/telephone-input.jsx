@@ -16,7 +16,8 @@ export default class TelInput extends React.Component {
 		restrictInput: true,
 		stripBare: true,
 
-		onValidate: () => { __DEV__ && console.warn('Input has validate option set, but no onValidate handler'); return true }
+		onValidate: () => { __DEV__ && console.warn('Input has validate option set, but no onValidate handler'); return true },
+		onChange: () => {}
 	};
 
 	static propTypes = {
@@ -27,7 +28,10 @@ export default class TelInput extends React.Component {
 		maxLength: React.PropTypes.number,
 		disabled: React.PropTypes.bool,
 		restrictInput: React.PropTypes.bool,
-		stripBare: React.PropTypes.bool
+		stripBare: React.PropTypes.bool,
+
+		onValidate: React.PropTypes.func,
+		onChange: React.PropTypes.func
 	}
 
 	constructor(props) {
@@ -72,9 +76,9 @@ export default class TelInput extends React.Component {
 	handleChange(evt) {
 		const val = evt.target.value
 		if( this.props.validate || this.props.required )
-			this.setState({ val, valid: this.validate(val) })
+			this.setState({ val, valid: this.validate(val) }, () => this.props.onChange(this.state.val, this.state.valid))
 		else
-			this.setState({ val })
+			this.setState({ val }, () => this.props.onChange(this.state.val))
 	}
 
 	handleKeyPress(evt) {

@@ -22,7 +22,11 @@ export default class Range extends React.Component {
 		minValue: 0,
 		maxValue: 100,
 		decimalPlaces: 2,
-		steps: null
+		steps: null,
+
+		onChange: () => {},
+		onStart: () => {},
+		onEnd: () => {}
 	};
 
 	static propTypes = {
@@ -36,7 +40,11 @@ export default class Range extends React.Component {
 		fullWidth: React.PropTypes.bool,
 		minValue: React.PropTypes.number,
 		maxValue: React.PropTypes.number,
-		decimalPlaces: React.PropTypes.number
+		decimalPlaces: React.PropTypes.number,
+
+		onChange: React.PropTypes.func,
+		onStart: React.PropTypes.func,
+		onEnd: React.PropTypes.func
 	};
 
 	constructor(props) {
@@ -119,14 +127,14 @@ export default class Range extends React.Component {
 				lowPosition: mousePos,
 				draggingLow: true,
 				movingNum: 0
-			})
+			}, () => this.props.onStart(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		} else {
 			this.setState({
 				highVal: calcVal,
 				highPosition: mousePos,
 				draggingHigh: true,
 				movingNum: 1
-			})
+			}, () => this.props.onStart(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		}
 	}
 
@@ -134,11 +142,11 @@ export default class Range extends React.Component {
 		if(this.state.movingNum === 0) {
 			this.setState({
 				draggingLow: false
-			})
+			}, () => this.props.onEnd(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		} else {
 			this.setState({
 				draggingHigh: false
-			})
+			}, () => this.props.onEnd(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		}
 	}
 
@@ -174,14 +182,14 @@ export default class Range extends React.Component {
 				lowPosition: mousePos,
 				draggingLow: true,
 				movingNum: 0
-			})
+			}, () => this.props.onChange(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		} else {
 			this.setState({
 				highVal: calcVal,
 				highPosition: mousePos,
 				draggingHigh: true,
 				movingNum: 1
-			})
+			}, () => this.props.onChange(this.state.lowVal, this.state.highVal, this.state.movingNum))
 		}
 	}
 

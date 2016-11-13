@@ -20,7 +20,11 @@ export default class Slider extends React.Component {
 		minValue: 0,
 		maxValue: 100,
 		decimalPlaces: 2,
-		steps: null
+		steps: null,
+
+		onChange: () => {},
+		onStart: () => {},
+		onEnd: () => {}
 	};
 
 	static propTypes = {
@@ -33,7 +37,11 @@ export default class Slider extends React.Component {
 		fullWidth: React.PropTypes.bool,
 		minValue: React.PropTypes.number,
 		maxValue: React.PropTypes.number,
-		decimalPlaces: React.PropTypes.number
+		decimalPlaces: React.PropTypes.number,
+
+		onChange: React.PropTypes.func,
+		onStart: React.PropTypes.func,
+		onEnd: React.PropTypes.func
 	};
 
 	constructor(props) {
@@ -99,13 +107,13 @@ export default class Slider extends React.Component {
 			val: calcVal,
 			position: mousePos,
 			dragging: true
-		})
+		}, () => this.props.onStart(this.state.val))
 	}
 
 	handleMouseUp(evt) {
 		this.setState({
 			dragging: false
-		})
+		}, () => this.props.onEnd(this.state.val))
 	}
 
 	handleMouseMove(evt) {
@@ -131,7 +139,7 @@ export default class Slider extends React.Component {
 			val: calcVal,
 			position: mousePos,
 			dragging: true
-		})
+		}, () => this.props.onChange(this.state.val))
 	}
 
 	render() {

@@ -8,10 +8,11 @@ module.exports = {
 		filename: "ruined.js"
 	},
 	devServer: {
-		host: 'dev-array.dev',
+		host: 'localhost',
 		port: 8080,
 		contentBase: path.join(__dirname, "src/example"),
 		hot: true,
+		https: true
 	},
 	module: {
 		loaders: [
