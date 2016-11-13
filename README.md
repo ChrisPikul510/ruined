@@ -6,6 +6,7 @@
   * __ConfirmButton__ - When clicked presents a tooltip asking for a second click, after the second click it fires the onClick event
 * __Input__ - Input that negotiates the autofill values from it's type, also offers validation and required icons.
   * __TelInput__ - Telephone input that opens a popover allowing a more familiar input style. Has input restriction to only allow valid characters.
+* __Toggle__ - Sometimes called a "Switch". Same functionality as Checkbox but has separate block elements for rendering thumb and track.
 * __Checkbox__ - Standard checkbox for css styling (so not the native styled checkbox)
 * __Radio__ - Same as checkbox
 * __Slider__ - Value slider with min/max values, and stepping. Plenty of view options for displaying labels, values, progress, etc.
