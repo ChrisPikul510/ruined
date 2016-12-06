@@ -1,0 +1,15 @@
+@import 'theme';
+
+.popover {
+	display: block;
+	box-sizing: border-box;
+	width: auto;
+	height: auto;
+	border: 1px solid $color-default-highlight;
+	border-radius: 0.25em;
+	position: 'absolute';
+	padding: 0.5em;
+	background: $color-background;
+	box-shadow: 0 0 $shadow-size $shadow-color;
+	z-index: 100;
+}

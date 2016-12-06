@@ -1,0 +1,21 @@
+RUINED Roadmap
+==============
+
+Components to add:
+------------------
+
+- Popover (like the one in telephone-input)
+- Progress bar, Refresh control
+- Modals & dialogs
+- Context menus
+- Select and drop-downs
+- Date & Time inputs
+- Avatar?
+- Badge?
+- Tag/Chips?
+- Autocomplete with data source, filter, and fuzzy search
+- Tab navigation
+- Button groups
+- Tooltips
+- Breadcrumbs
+- Alerts, inline alerts
