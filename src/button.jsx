@@ -1,8 +1,24 @@
 import React from 'react'
 
+import Tooltip from './tooltip'
+
 require('styles/button.scss')
 export default class Button extends React.Component {
+	static propTypes = {
+		tooltip: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.func]),
+		type: React.PropTypes.oneOf(['default','submit','reset', 'info','success','warning','danger']),
+		size: React.PropTypes.oneOf(['xsmall','small','regular','large']),
+		shape: React.PropTypes.oneOf(['rectangle','round','transparent']),
+		icon: React.PropTypes.string,
+		hideText: React.PropTypes.bool,
+		status: React.PropTypes.string,
+		clearAfterSuccess: React.PropTypes.bool,
+		properties: React.PropTypes.object,
+		onClick: React.PropTypes.func
+	};
+
 	static defaultProps = {
+		tooltip: null,
 		type: 'default',
 		size: 'regular',
 		shape: 'rectangle',
@@ -19,18 +35,6 @@ export default class Button extends React.Component {
 		onClick: () => { __DEV__ && console.warn('Button doesn\'t have an onClick event handler')}
 	};
 
-	static propTypes = {
-		type: React.PropTypes.oneOf(['default','submit','reset', 'info','success','warning','danger']),
-		size: React.PropTypes.oneOf(['xsmall','small','regular','large']),
-		shape: React.PropTypes.oneOf(['rectangle','round','transparent']),
-		icon: React.PropTypes.string,
-		hideText: React.PropTypes.bool,
-		status: React.PropTypes.string,
-		clearAfterSuccess: React.PropTypes.bool,
-		properties: React.PropTypes.object,
-		onClick: React.PropTypes.func
-	};
-
 	constructor(props) {
 		super(props)
 
@@ -44,15 +48,40 @@ export default class Button extends React.Component {
 		let status = (props.clearAfterSuccess==true && props.status=='success')?'idle':props.status
 		this.state = {
 			className: classes.join(' ').trim(),
-			status
+			status,
+			showTooltip: false,
+			mousePosition: null
 		}
 
 		this.setStatus = this.setStatus.bind(this)
 		this.getStatus = () => { return this.state.status }
 
 		this.handleClick = this.handleClick.bind(this)
-		this.handleHoverEnter = () => this.setState({animateHover: true})
-		this.handleHoverLeave = () => this.setState({animateHover: false})
+		this.handleHoverEnter = (evt) => {
+			this.setState({
+				animateHover: true
+			})
+			setTimeout(() => {
+				if(this.state.animateHover && this.props.tooltip) {
+					this.setState({
+						showTooltip: true,
+					})
+				}
+			}, 1000)
+		}
+		this.handleHoverLeave = () => {
+			this.setState({animateHover: false, showTooltip: false})
+		}
+		this.handleMouseMove = (evt) => {
+			if(this.props.tooltip) {
+				this.setState({
+					mousePosition: {
+						x: evt.clientX,
+						y: evt.clientY
+					}
+				})
+			}
+		}
 	}
 
 	setStatus(status) {
@@ -117,14 +146,23 @@ export default class Button extends React.Component {
 		if(this.state.animateHover === true && disabled === false)
 			classes += ' hover'
 
+		let tooltip = null
+		if(this.props.tooltip && this.state.showTooltip) {
+			if(typeof this.props.tooltip === 'function')
+				tooltip = this.props.tooltip(this.state.mousePosition)
+			else
+				tooltip = <Tooltip mousePosition={this.state.mousePosition}>{this.props.tooltip}</Tooltip>
+		}
+
 		return <button type={type} 
-						title={this.props.hideText==true?this.props.children:null} 
+						title={this.props.hideText==true?this.props.children:null}
 						{...this.props.properties} 
 						className={classes} 
 						disabled={disabled} 
 						onClick={this.handleClick}
 						onMouseEnter={this.handleHoverEnter}
 						onMouseLeave={this.handleHoverLeave}
-						>{icon}{this.props.children}</button>
+						onMouseMove={this.handleMouseMove}
+						>{icon}{this.props.children}{tooltip}</button>
 	}
 }

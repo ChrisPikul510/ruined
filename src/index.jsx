@@ -7,10 +7,13 @@ import * as Buttons from './buttons'
 import * as Inputs from './inputs'
 import Icon from './icon'
 
+import Containers from './containers'
+
 if(typeof module !== 'undefined') {
 	module.exports = {
 		...Buttons,
 		...Inputs,
-		Icon
+		Icon,
+		...Containers
 	}
 }

@@ -14,7 +14,8 @@ import { Button, ConfirmButton, IconButton,
 		Input, TelInput, 
 		Toggle, Checkbox, Radio, 
 		Slider, Range, 
-		Icon } from '../' //RUInED
+		Icon,
+		Tooltip, Popover } from '../' //RUInED
 
 class RUInED extends React.Component {
 	constructor(props) {
@@ -95,6 +96,24 @@ class RUInED extends React.Component {
 				<Range showValue>With Value</Range>
 				<Range fullWidth showValueRange>Full Width w/Range</Range>
 				<Range fullWidth showValueInThumb minValue={5} maxValue={95} steps={5}>Complex</Range>
+			<h2>Containers</h2>
+				<h3>Tooltip</h3>
+				<Button tooltip={(pos) => {
+					return <Tooltip mousePosition={pos}><Icon icon='check' />&nbsp;Example tooltip</Tooltip>
+				}}>Hover Over Me</Button>
+
+				<h3>Popover</h3>
+				<Popover ref='popover1'>
+					Content
+				</Popover>
+				<Button onClick={(evt) => this.refs.popover1.open(evt)}>Open Default Popover</Button>
+				<br /><br />
+				<Popover ref='popover2' horizontalAlignment='right' verticalAlignment='center' spacing={10} closeByToggle>
+					Content<br />
+					Line 2<br />
+					Line 3<br />
+				</Popover>
+				<Button onClick={(evt) => this.refs.popover2.toggle(evt)}>Open Advanced Popover</Button>
 			<h2>Miscellaneous</h2>
 				<h3>Icons</h3>
 				<p>Icons work inline
