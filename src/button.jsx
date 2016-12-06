@@ -100,7 +100,7 @@ export default class Button extends React.Component {
 	}
 
 	handleClick(evt) {
-		this.setState({animateClick: true}, () => setTimeout(() => this.setState({animateClick: false}), 1000))
+		this.setState({animateClick: true}, () => setTimeout(() => this.setState({animateClick: false}), 500))
 		this.props.onClick(evt)
 	}
 

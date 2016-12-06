@@ -15,14 +15,17 @@ import { Button, ConfirmButton, IconButton,
 		Toggle, Checkbox, Radio, 
 		Slider, Range, 
 		Icon,
-		Tooltip, Popover } from '../' //RUInED
+		Tooltip, Popover,
+		ProgressBar } from '../' //RUInED
 
 class RUInED extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			status: 'idle'
+			status: 'idle',
+			progressValue: 0,
+			progressState: 'idle'
 		}
 		this.fakeAsync = this.fakeAsync.bind(this)
 
@@ -115,6 +118,17 @@ class RUInED extends React.Component {
 				</Popover>
 				<Button onClick={(evt) => this.refs.popover2.toggle(evt)}>Open Advanced Popover</Button>
 			<h2>Feedback</h2>
+				<h3>Progress Bar</h3>
+				<h4>Determinate (uses percentage)</h4>
+				<ProgressBar ref='progressDeterminate' progress={this.state.progressValue} />
+				<Button type='reset' onClick={() => this.refs.progressDeterminate.reset()}>Reset</Button>
+				<Button onClick={() => this.refs.progressDeterminate.setProgress(0.5)}>50%</Button>
+				<Button onClick={() => this.refs.progressDeterminate.increment(0.1)}>Add 10%</Button>
+				<Button type='submit' status={this.state.progressState} onClick={this.simulateProgressBar}>Simulate (controlled)</Button>
+				<Button type='submit' onClick={this.simulateProgressBarFunc}>Simulate (functional)</Button>
+				<h4>Indeterminate (animates)</h4>
+				<ProgressBar ref='progressIndeterminate' indeterminate/>
+				<Button onClick={() => this.refs.progressIndeterminate.activity()}>Activity Happened</Button>
 			<h2>Miscellaneous</h2>
 				<h3>Icons</h3>
 				<p>Icons work inline
@@ -128,6 +142,29 @@ class RUInED extends React.Component {
 					<Icon icon='cross' type='danger' />
 					for easier typography</p>
 		</div>
+	}
+
+	simulateProgressBar = () => {
+		if(this.state.progressValue < 1.0) {
+			this.setState({
+				progressValue: this.state.progressValue + Math.random() * 0.1,
+				progressState: 'fetching'
+			}, () => {
+				setTimeout(this.simulateProgressBar, Math.random() * 1000)
+			})
+		}
+		else if(this.state.progressValue >= 1.0) {
+			this.setState({
+				progressState: 'success'
+			}, () => setTimeout(() => this.setState({ progressState: 'idle'}), 1000) )
+		}
+	}
+
+	simulateProgressBarFunc = () => {
+		if(this.refs.progressDeterminate.value < 1.0) {
+			this.refs.progressDeterminate.increment(Math.random() * 0.1)
+			setTimeout(this.simulateProgressBarFunc, Math.random() * 1000)
+		}
 	}
 }
 

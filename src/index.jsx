@@ -8,12 +8,14 @@ import * as Inputs from './inputs'
 import Icon from './icon'
 
 import Containers from './containers'
+import Feedback from './feedback'
 
 if(typeof module !== 'undefined') {
 	module.exports = {
 		...Buttons,
 		...Inputs,
 		Icon,
-		...Containers
+		...Containers,
+		...Feedback
 	}
 }
