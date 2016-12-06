@@ -4,7 +4,7 @@ RUINED Roadmap
 Components to add:
 ------------------
 
-- Popover (like the one in telephone-input)
+X Popover (like the one in telephone-input)
 - Progress bar, Refresh control
 - Modals & dialogs
 - Context menus

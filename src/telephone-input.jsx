@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Input from './input'
 
 require('styles/input.scss')

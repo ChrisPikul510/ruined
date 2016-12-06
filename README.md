@@ -11,6 +11,8 @@
 * __Radio__ - Same as checkbox
 * __Slider__ - Value slider with min/max values, and stepping. Plenty of view options for displaying labels, values, progress, etc.
 * __Range__ - Like slider, but has a low value and high value thumb. Same view properties as Slider
+* __Tooltip__ - Allows tooltips to be rendered while following the mouse. Contents are assigned by either string, or function return.
+* __Popover__ - Container window that appears around an object like Button, allows creation of menus or dropdown lists
 * __Icon__ - Simple icon class that templates the SVG code to place. Has global properties so you can set once and forget about it.
 
 ##Usage

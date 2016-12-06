@@ -114,6 +114,7 @@ class RUInED extends React.Component {
 					Line 3<br />
 				</Popover>
 				<Button onClick={(evt) => this.refs.popover2.toggle(evt)}>Open Advanced Popover</Button>
+			<h2>Feedback</h2>
 			<h2>Miscellaneous</h2>
 				<h3>Icons</h3>
 				<p>Icons work inline
